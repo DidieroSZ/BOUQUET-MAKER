@@ -16,6 +16,8 @@ import flower_sprite from '../media/sprites/flower_sprite.png';
 import backimage from '../media/background-header.png';
 /* --- IMAGES --- */
 
+import { animate, press, delay } from "motion"
+
 export class HomePageComponent extends LitElement {
 
     static properties = {
@@ -29,6 +31,10 @@ export class HomePageComponent extends LitElement {
         css` ${unsafeCSS(generalStyles)}`,
         css` ${unsafeCSS(homePageStyles)}`,
     ]
+
+    firstUpdated(){
+        this._animatronik();
+    }
 
     render(){
         return html`
@@ -45,27 +51,27 @@ export class HomePageComponent extends LitElement {
         `;
     };
 
+    _animatronik(){
+        const cont = this.renderRoot.querySelector('.card--container');
+        delay(() => {
+            animate(cont,
+                { rotate: 5 },
+                {
+                    type: "spring",
+                    visualDuration: 0.8,
+                    bounce: 0.69
+                }
+            );
+        }, 0.7)
+        
+    }
+
     _goToBuilder() {
         this.dispatchEvent(new CustomEvent('navigate', {
             detail: '/build/',
             bubbles: true,
             composed: true
         }));
-    }
-
-    _renderCardMain(){
-        return html`
-            <article class="card--container title-font d-flexx d-col">
-                <p class="title--card">Bouquet</p>
-                <p class="title--card d-flexx d-row"><span class="d-flexx">${unsafeHTML(iconos.flower)}</span> Maker</p>
-                <div class="inner--card d-flexx d-col">
-                    <p class="general-font">
-                        Diseña ramos virtuales personalizados y acompáñalos con el mensaje perfecto para cada ocasión.
-                    </p>
-                    <button class="btn-general btn-principal">Personaliza tu ramo</button>
-                </div>
-            </article>
-        `;
     }
 }
 customElements.define('home-page', HomePageComponent);

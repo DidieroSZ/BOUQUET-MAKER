@@ -35,8 +35,6 @@ export class AppMain extends LitElement {
         window.addEventListener('navigate', e => this.navigate(e.detail));
     }
 
-    
-
     render(){
         return html`
             <main class="main-cotainer d-flexx d-row">
@@ -46,13 +44,15 @@ export class AppMain extends LitElement {
             </main>
         `;
     };
+    
+   
 
     _renderPage(){
         switch (this.route) {
             case '/build/':
-                return html`<build-page></build-page>`;
+                return html`<build-page class="page--container d-flexx"></build-page>`;
             default:
-                return html`<home-page></home-page>`;
+                return html`<home-page class="page--container d-flexx"></home-page>`;
         }
     }
 

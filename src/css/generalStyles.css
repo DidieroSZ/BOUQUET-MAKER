@@ -80,3 +80,7 @@
         color: var(--Negro);
         text-decoration: none;
     }
+    .page--container{
+        width: 100%;
+        height: 100%;
+    }
