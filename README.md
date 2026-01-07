@@ -1,6 +1,6 @@
-# Proyecto Split Bill Lit-Element
+# Proyecto Bouquet Maker Lit-Element
 
-Este proyecto es una aplicación web desarrollada con **LitElement** y **JavaScript Vanilla**, con la finalidad de failitar el pago de cuentas entre amigos.
+Este proyecto es una aplicación web desarrollada con **LitElement** y **JavaScript Vanilla**, con la finalidad de personalizar ramos o bouquets de flores con mensajes bonitos, ideal para detalles de último momento.
 
 ---
 
