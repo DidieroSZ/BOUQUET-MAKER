@@ -13,6 +13,7 @@
     --Negro: #1E1E24;
 }
 
+/** FONTS STYLES */
 .cursiva-font{
     font-family: 'Pencerio', cursive;
 }
@@ -23,6 +24,9 @@
 .title-font{
     font-family: 'Melodrama', serif;
 }
+/** FONTS STYLES */
+
+
 /** GENERAL STYLES */
 .d-flexx{
     display: flex;
@@ -48,6 +52,9 @@
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s;
+    border-radius: 3rem;
+    text-decoration: none;
+    corner-shape: squircle;
 }   
     .btn-general:hover{
         background-color: var(--Naranja);
@@ -56,6 +63,8 @@
 
 }
 /** GENERAL STYLES */
+
+
 .main-cotainer{
     width: 100%;
     height: 100vh;
@@ -63,6 +72,7 @@
     position: relative;
     background-color: var(--Beige);
 }
+
     .portfolio--link{
         position: absolute;
         top: 2rem;
@@ -70,68 +80,3 @@
         color: var(--Negro);
         text-decoration: none;
     }
-
-    .card--container{
-        width: auto;
-        min-width: 300px;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 1/1;
-        align-content: start;
-        text-align: center;
-        background-color: var(--Blanco);
-        overflow: hidden;
-        border-radius: 3rem;
-        padding: 2rem;
-        transform: rotate(5deg);
-        corner-shape: scoop;
-        /* corner-shape: squircle; */
-    }
-        .title--card{
-            width: fit-content;
-            height: auto;
-            font-size: 5rem;
-            font-weight: bold;
-            color: var(--Naranja);
-        }
-            .title--card span{
-                width: fit-content;
-                height: auto;
-                aspect-ratio: 1/1;
-                overflow: hidden;
-                margin-right: 1rem;
-            }
-                .title--card svg{
-                    width: 5rem;
-                    height: auto;
-                    aspect-ratio: 1/1;
-                }
-        .inner--card{
-            width: 100%;
-            height: auto;
-            background-color: var(--Blanco);
-            flex-grow: 1;
-            color: var(--Negro);
-            gap: 1rem;
-        }
-
-    /* div{
-        width: 5rem;
-        background-color: var(--Blanco);
-        height: auto;
-        aspect-ratio: 1/1;
-        overflow: hidden;
-        background-image: url("../media/sprites/flower_sprite.png");
-        background-repeat: no-repeat;
-        border: solid 1px #000;
-        background-size: 15rem;
-    }
-        .flower_01{
-            background-position: 0 -0.2rem;
-        }
-        .flower_02{
-            background-position: -5rem -0.2rem;
-        }
-        .flower_03{
-            background-position: -10rem -0.2rem;
-        } */

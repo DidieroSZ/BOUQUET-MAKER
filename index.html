@@ -19,7 +19,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./src/media/icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./src/media/icon/favicon-16x16.png">
 
-    <script type="module" src="./src/components/main.js"></script>
+    <script type="module" src="./src/components/appMain.js"></script>
     <link href="./src/css/generalStyles.css" rel="stylesheet">
 
     <link href="https://api.fontshare.com/v2/css?f[]=bonny@100,300,400,500,700&display=swap" rel="stylesheet"> <!-- General -->
@@ -30,5 +30,12 @@
 </head>
 <body>
     <main-component></main-component>
+
+    <script>
+        if (!location.pathname.startsWith('/BOUQUET-MAKER')) {
+            location.replace('/BOUQUET-MAKER/');
+        }
+    </script>
 </body>
+
 </html>

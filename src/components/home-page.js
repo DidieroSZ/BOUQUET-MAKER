@@ -1,0 +1,71 @@
+import { LitElement, html, css } from "lit-element";
+import { unsafeCSS } from 'lit-element';
+import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
+
+/* --- STYLES --- */
+import generalStyles from '../css/generalStyles.css?inline';
+import homePageStyles from '../css/homePageStyles.css?inline';
+/* --- STYLES --- */
+
+/* --- ICONS --- */
+import { iconos } from '../utils/icons.js';
+/* --- ICONS --- */
+
+/* --- IMAGES --- */
+import flower_sprite from '../media/sprites/flower_sprite.png';
+import backimage from '../media/background-header.png';
+/* --- IMAGES --- */
+
+export class HomePageComponent extends LitElement {
+
+    static properties = {
+        hola: { type: String },
+    }
+    constructor(){
+        super();
+        this.hola = 'Hola';
+    }
+    static styles = [
+        css` ${unsafeCSS(generalStyles)}`,
+        css` ${unsafeCSS(homePageStyles)}`,
+    ]
+
+    render(){
+        return html`
+            <article class="card--container title-font d-flexx d-col">
+                <p class="title--card">Bouquet</p>
+                <p class="title--card d-flexx d-row"><span class="d-flexx">${unsafeHTML(iconos.flower)}</span> Maker</p>
+                <div class="inner--card d-flexx d-col">
+                    <p class="general-font">
+                        Diseña ramos virtuales personalizados y acompáñalos con el mensaje perfecto para cada ocasión.
+                    </p>
+                    <button @click=${this._goToBuilder} class="btn-general btn-principal">Personaliza tu ramo</button>
+                </div>
+            </article>
+        `;
+    };
+
+    _goToBuilder() {
+        this.dispatchEvent(new CustomEvent('navigate', {
+            detail: '/build/',
+            bubbles: true,
+            composed: true
+        }));
+    }
+
+    _renderCardMain(){
+        return html`
+            <article class="card--container title-font d-flexx d-col">
+                <p class="title--card">Bouquet</p>
+                <p class="title--card d-flexx d-row"><span class="d-flexx">${unsafeHTML(iconos.flower)}</span> Maker</p>
+                <div class="inner--card d-flexx d-col">
+                    <p class="general-font">
+                        Diseña ramos virtuales personalizados y acompáñalos con el mensaje perfecto para cada ocasión.
+                    </p>
+                    <button class="btn-general btn-principal">Personaliza tu ramo</button>
+                </div>
+            </article>
+        `;
+    }
+}
+customElements.define('home-page', HomePageComponent);
