@@ -10,7 +10,7 @@
         background-color: var(--Blanco);
         overflow: hidden;
         border-radius: 3rem;
-        padding: 2rem;
+        padding: var(--Pad02);
         corner-shape: scoop;
         /* corner-shape: squircle; */
     }
@@ -26,7 +26,7 @@
                 height: auto;
                 aspect-ratio: 1/1;
                 overflow: hidden;
-                margin-right: 1rem;
+                margin-right: var(--Pad01);
             }
                 .title--card svg{
                     width: 5rem;
@@ -39,7 +39,7 @@
             background-color: var(--Blanco);
             flex-grow: 1;
             color: var(--Negro);
-            gap: 1rem;
+            gap: var(--Pad01);
         }
 
     /* div{

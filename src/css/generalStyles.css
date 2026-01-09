@@ -11,6 +11,11 @@
     --Verde: #8DAA91;
     --Rosa: #ffe3df;
     --Negro: #1E1E24;
+    --Gris: #dee2e6;
+
+    --Pad00: 0.5rem;
+    --Pad01: 1rem;
+    --Pad02: 2rem;
 }
 
 /** FONTS STYLES */
@@ -23,6 +28,10 @@
 }
 .title-font{
     font-family: 'Melodrama', serif;
+}
+.gowun-dodum-regular {
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: bold;
 }
 /** FONTS STYLES */
 
@@ -44,7 +53,7 @@
 .btn-general{
     width: auto;
     height: fit-content;
-    padding: 1rem;
+    padding: var(--Pad01);
     border: solid 2px var(--Negro);
     background-color: var(--Negro);
     color: var(--Blanco);
@@ -59,9 +68,21 @@
     .btn-general:hover{
         background-color: var(--Naranja);
     }
-.btn-principal{
+.btn-circular{
+    aspect-ratio: 1/1;
+    padding:var(--Pad00);
+}
+.btn-pri{
 
 }
+.btn-sec{
+    background-color: var(--Gris);
+    border: solid 1px var(--Gris);
+    color: var(--Negro);
+}
+    .btn-sec:hover{
+        background-color: var(--Blanco);
+    }
 /** GENERAL STYLES */
 
 
@@ -75,8 +96,8 @@
 
     .portfolio--link{
         position: absolute;
-        top: 2rem;
-        left: 2rem;
+        top: var(--Pad02);
+        left: var(--Pad02);
         color: var(--Negro);
         text-decoration: none;
     }

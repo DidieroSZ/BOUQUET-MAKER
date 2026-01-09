@@ -45,7 +45,7 @@ export class HomePageComponent extends LitElement {
                     <p class="general-font">
                         Diseña ramos virtuales personalizados y acompáñalos con el mensaje perfecto para cada ocasión.
                     </p>
-                    <button @click=${this._goToBuilder} class="btn-general btn-principal">Personaliza tu ramo</button>
+                    <button @click=${this._goToBuilder} class="btn-general btn-principal gowun-dodum-regular">Personaliza tu ramo</button>
                 </div>
             </article>
         `;

@@ -39,7 +39,22 @@ export class BuildPageCompoent extends LitElement {
     render(){
         return html`
            <section class="builder--container d-flexx d-col">
-            ddada
+                <button class="btn--close--builder btn-general btn-circular btn-sec d-flexx">${unsafeHTML(iconos.close)}</button>
+                <div class="steps--container d-flexx d-row">
+                    <span class="circle--step d-flexx">${unsafeHTML(iconos.flower)}</span>
+                    <span class="circle--step d-flexx">${unsafeHTML(iconos.leaf)}</span>
+                    <span class="circle--step d-flexx">${unsafeHTML(iconos.pencil)}</span>
+                    <span class="circle--step d-flexx">${unsafeHTML(iconos.send)}</span>
+                </div>
+                <div class="item--builder--card middle--builder">
+                    <aside class="configurator--container d-flexx d-col">
+                        <div class="top-detail d-flexx"><p class="general-font">Detalles</p></div>
+                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x2</p><p>Ortencia</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
+                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x1</p><p>Peonia</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
+                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x3</p><p>Cosmos</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
+                    </aside>
+                </div>
+                <div class="item--builder--card bottom--builder"></div>
            </section>
         `;
     };

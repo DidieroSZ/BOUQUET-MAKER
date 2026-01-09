@@ -8,6 +8,108 @@
     background-color: var(--Blanco);
     overflow: hidden;
     position: relative;
-    border-radius: 2rem;
-    padding: 2rem;
+    border-radius: var(--Pad02);
+    padding: var(--Pad02);
 }
+    
+    .btn--close--builder{
+        position: absolute;
+        top: var(--Pad02);
+        right: var(--Pad02);
+        z-index: 2;
+    }
+    .steps--container{
+        width: 40%;
+        max-width: 250px;
+        min-width: 200px;
+        height: fit-content;
+        min-height: 50px;
+        /* background-color: var(--Negro); */
+        overflow: hidden;
+        position: absolute;
+        top: var(--Pad02);
+        transform: translateX(-50%);
+        left: 50%;
+        z-index: 2;
+        justify-content: space-between;
+    }
+        .circle--step{
+            width: fit-content;
+            height: fit-content;
+            aspect-ratio: 1/1;
+            align-items: center;
+            padding: 0.7rem;
+            background-color: var(--Gris);
+            color: var(--Negro);
+            border-radius: 50%;
+        }
+            .circle--step > svg{
+                width: 1rem;
+                height: 1rem;
+                aspect-ratio: 1/1;
+                stroke: var(--Negro);
+            }
+
+    .item--builder--card{
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+        flex-grow: 1;
+    }
+    .middle--builder{
+        height: 70%;
+        /* background-color: var(--Rosa); */
+    }
+        .configurator--container{
+            width: min(20%, 210px);
+            height: 75%;
+            background-color: var(--Blanco);
+            border: solid 1px var(--Negro);
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            right: 0;
+            border-radius: var(--Pad01);
+            overflow: hidden;
+            justify-content: start;
+            align-items: start;
+        }
+            .top-detail{
+                width: 100%;
+                height: fit-content;
+                min-height: 40px;
+                background-color: var(--Negro);
+                padding: var(--Pad00);
+                color: var(--Blanco);
+            }
+            .flower--list{
+                width: 100%;
+                height: fit-content;
+                gap: var(--Pad00);
+                padding: var(--Pad00) 0 0 var(--Pad00);
+                opacity: 0.6;
+                line-height: 1cap;
+                justify-content: start;
+            }
+                .flower--list > button{
+                    border: none;
+                    padding: none;
+                    font-size: var(--Pad00);
+                    background-color: transparent;
+                    color: var(--Negro);
+                    cursor: pointer;
+                }
+                    .flower--list > button > svg{
+                        width: 1rem;
+                        height: 1rem;
+                        aspect-ratio: 1/1;
+                        stroke: var(--Negro);
+                    }
+
+
+    .bottom--builder{
+        height: 10%;
+        max-height: 15%;
+        /* background-color: var(--Negro); */
+    }
