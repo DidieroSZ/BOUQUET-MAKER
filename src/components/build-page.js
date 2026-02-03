@@ -25,11 +25,14 @@ import { animate, press, delay } from "motion"
 export class BuildPageCompoent extends LitElement {
 
     static properties = {
-        hola: { type: String },
+        detallesBouquet: { type: Object},
     }
     constructor(){
         super();
-        this.hola = 'Hola';
+        this.detallesBouquet = {
+            flores:[ { nombre: 'aciano', cant: 2 }, { nombre: 'brunfelsia', cant: 4 }],
+            follaje: [ { nombre: 'Eucalipto', cant: 1 }, ]
+        };
     }
     static styles = [
         css` ${unsafeCSS(generalStyles)}`,
@@ -58,11 +61,9 @@ export class BuildPageCompoent extends LitElement {
                 <div class="item--builder--card middle--builder">
                     <aside class="configurator--container d-flexx d-col">
                         <div class="top-detail d-flexx"><p class="general-font">Detalles</p></div>
-                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x2</p><p>Ortencia</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
-                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x1</p><p>Peonia</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
-                        <span class="flower--list d-flexx d-row gowun-dodum-regular"><p>x3</p><p>Cosmos</p><button class="d-flexx">${unsafeHTML(iconos.close)}</button></span>
+                        ${this._renderDetails()}
                     </aside>
-                    
+
 
                     <div class="render--container d-flexx d-row">
                         ${this._renderFlowers()}
@@ -74,27 +75,24 @@ export class BuildPageCompoent extends LitElement {
     };
 
     _renderFlowers(){
+        const flores = ['aciano', 'fresia', 'cosmos', 'nemesia', 'azaleas', 'gerbera', 
+        'aster', 'hibisco', 'lirio', 'kalanchoe', 'anémona', 'brunfelsia', 'pensamiento', 'plumeria', 'zinnia'];
         return html`
-            <flower-item .flowerName=${'aciano'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'fresia'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'cosmos'} @flower-click=${this._flowerClick}></flower-item>
-
-            <flower-item .flowerName=${'nemesia'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'azaleas'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'gerbera'} @flower-click=${this._flowerClick}></flower-item>
-
-            <flower-item .flowerName=${'aster'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'hibisco'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'lirio'} @flower-click=${this._flowerClick}></flower-item>
-
-            <flower-item .flowerName=${'kalanchoe'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'anémona'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'brunfelsia'} @flower-click=${this._flowerClick}></flower-item>
-
-            <flower-item .flowerName=${'pensamiento'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'plumeria'} @flower-click=${this._flowerClick}></flower-item>
-            <flower-item .flowerName=${'zinnia'} @flower-click=${this._flowerClick}></flower-item>
+            ${flores.map(flor => html`
+                <flower-item .flowerName=${flor} @flower-click=${this._flowerClick}></flower-item>
+            `)}
         `;
+    }
+    _renderDetails(){
+        return html`
+            ${this.detallesBouquet.flores.map(f => html`
+                <span class="flower--list d-flexx d-row gowun-dodum-regular">
+                    <p>${f.cant}x</p><p>${f.nombre}</p>
+                    <button class="d-flexx">${unsafeHTML(iconos.close)}</button>
+                </span>
+            `)}
+        `;
+        
     }
     /* ------------- RENDER FUNCTIONS ------------- */
 
@@ -116,7 +114,10 @@ export class BuildPageCompoent extends LitElement {
 
     _flowerClick(e){
         let flowerName = e.detail.flowerName;
-        console.log(flowerName);
+        
+        let formato = {nombre: flowerName, cant: 1}
+        this.detallesBouquet.flores.push(formato);
+        this.requestUpdate();
     }
 
 
