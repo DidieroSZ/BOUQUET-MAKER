@@ -1,0 +1,99 @@
+:host {
+    --size: 100px;
+    --size1: calc(var(--size) * -1);
+    --size2: calc((var(--size) * 2) * -1);
+}
+
+.flower-item {
+    width: var(--size);
+    min-width: var(--size);
+    aspect-ratio: 1/1;
+    background-image: url('../media/sprites/flower_sprite.png');
+    background-repeat: no-repeat;
+    background-size: calc(var(--size) * 3);
+    /* border: solid 1px var(--Negro); */
+    position: relative;
+    margin-bottom: 1.5rem;
+
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+    .flower-item:hover {
+        scale: 1.1;
+    }
+
+    .flower-item > p {
+        opacity: 0;
+        font-size: 1rem;
+        text-align: center;
+        position: relative;
+        top: -1cap;
+        line-height: 1cap;
+        text-transform: uppercase;
+        transition: all ease 0.5s;
+    }
+        .flower-item:hover > p {
+            overflow: visible;
+            opacity: 1;
+        }
+
+
+    .flower-item[data-flower="aciano"] {
+        background-position: 0 -5px;
+    }
+
+    .flower-item[data-flower="fresia"] {
+        background-position: var(--size1) -5px;
+    }
+
+    .flower-item[data-flower="cosmos"] {
+        background-position: var(--size2) -5px;
+    }
+
+    .flower-item[data-flower="nemesia"] {
+        background-position: 0 -110px;
+    }
+
+    .flower-item[data-flower="azaleas"] {
+        background-position: var(--size1) -115px;
+    }
+
+    .flower-item[data-flower="gerbera"] {
+        background-position: var(--size2) -110px;
+    }
+
+    .flower-item[data-flower="aster"] {
+        background-position: 0rem -225px;
+    }
+
+    .flower-item[data-flower="hibisco"] {
+        background-position: var(--size1) -215px;
+    }
+
+    .flower-item[data-flower="lirio"] {
+        background-position: var(--size2) -220px;
+    }
+
+    .flower-item[data-flower="kalanchoe"] {
+        background-position: 0rem -327px;
+    }
+
+    .flower-item[data-flower="anémona"] {
+        background-position: -105px -315px;
+    }
+
+    .flower-item[data-flower="brunfelsia"] {
+        background-position: -205px -325px;
+    }
+
+    .flower-item[data-flower="pensamiento"] {
+        background-position: 0rem -425px;
+    }
+
+    .flower-item[data-flower="plumeria"] {
+        background-position: var(--size1) -415px;
+    }
+
+    .flower-item[data-flower="zinnia"] {
+        background-position: var(--size2) -430px;
+    }

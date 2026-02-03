@@ -11,22 +11,11 @@ import homePageStyles from '../css/homePageStyles.css?inline';
 import { iconos } from '../utils/icons.js';
 /* --- ICONS --- */
 
-/* --- IMAGES --- */
-import flower_sprite from '../media/sprites/flower_sprite.png';
-import backimage from '../media/background-header.png';
-/* --- IMAGES --- */
 
 import { animate, press, delay } from "motion"
 
 export class HomePageComponent extends LitElement {
 
-    static properties = {
-        hola: { type: String },
-    }
-    constructor(){
-        super();
-        this.hola = 'Hola';
-    }
     static styles = [
         css` ${unsafeCSS(generalStyles)}`,
         css` ${unsafeCSS(homePageStyles)}`,
@@ -36,6 +25,8 @@ export class HomePageComponent extends LitElement {
         this._animatronik();
     }
 
+
+    /* ------------- RENDER FUNCTIONS ------------- */
     render(){
         return html`
             <article class="card--container title-font d-flexx d-col">
@@ -49,8 +40,22 @@ export class HomePageComponent extends LitElement {
                 </div>
             </article>
         `;
-    };
+    };  
+    /* ------------- RENDER FUNCTIONS ------------- */
 
+
+    /* ------------- NAVEGATION FUNCTIONS ------------- */
+    _goToBuilder() {
+        this.dispatchEvent(new CustomEvent('navigate', {
+            detail: '/build/',
+            bubbles: true,
+            composed: true
+        }));
+    }
+    /* ------------- NAVEGATION FUNCTIONS ------------- */
+
+
+    /* ------------- ANIMATION FUNCTIONS ------------- */
     _animatronik(){
         const cont = this.renderRoot.querySelector('.card--container');
         delay(() => {
@@ -65,13 +70,6 @@ export class HomePageComponent extends LitElement {
         }, 0.7)
         
     }
-
-    _goToBuilder() {
-        this.dispatchEvent(new CustomEvent('navigate', {
-            detail: '/build/',
-            bubbles: true,
-            composed: true
-        }));
-    }
+    /* ------------- ANIMATION FUNCTIONS ------------- */
 }
 customElements.define('home-page', HomePageComponent);

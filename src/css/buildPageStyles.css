@@ -59,7 +59,7 @@
     }
     .middle--builder{
         height: 70%;
-        /* background-color: var(--Rosa); */
+        position: relative;
     }
         .configurator--container{
             width: min(20%, 210px);
@@ -108,8 +108,13 @@
                     }
 
 
-    .bottom--builder{
-        height: 10%;
-        max-height: 15%;
-        /* background-color: var(--Negro); */
-    }
+        .render--container{
+            width: 100%;
+            max-width: min(50%, 500px);
+            height: fit-content;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            gap: 0;
+        }

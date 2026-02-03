@@ -30,11 +30,14 @@ export class AppMain extends LitElement {
         css` ${unsafeCSS(generalStyles)}`,
     ]
 
+
     connectedCallback() {
         super.connectedCallback();
-        window.addEventListener('navigate', e => this.navigate(e.detail));
+        window.addEventListener('navigate', e => this._navigate(e.detail));
     }
 
+    
+    /* ------------- RENDER FUNCTIONS ------------- */
     render(){
         return html`
             <main class="main-cotainer d-flexx d-row">
@@ -45,8 +48,6 @@ export class AppMain extends LitElement {
         `;
     };
     
-   
-
     _renderPage(){
         switch (this.route) {
             case '/build/':
@@ -55,10 +56,14 @@ export class AppMain extends LitElement {
                 return html`<home-page class="page--container d-flexx"></home-page>`;
         }
     }
+    /* ------------- RENDER FUNCTIONS ------------- */
 
-    navigate(path) {
+
+    /* ------------- NAVEGATION FUNCTIONS ------------- */
+    _navigate(path) {
         history.pushState({}, '', `/BOUQUET-MAKER${path}`);
         this.route = getRoute();
     }
+    /* ------------- NAVEGATION FUNCTIONS ------------- */
 }
 customElements.define('main-component', AppMain);
