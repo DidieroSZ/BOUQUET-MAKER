@@ -75,6 +75,7 @@
             justify-content: start;
             align-items: start;
         }
+            
             .top-detail{
                 width: 100%;
                 height: fit-content;
@@ -83,34 +84,15 @@
                 padding: var(--Pad00);
                 color: var(--Blanco);
             }
-            .flower--list{
-                width: 100%;
-                height: fit-content;
-                gap: var(--Pad00);
-                padding: var(--Pad00) 0 0 var(--Pad00);
+            .configurator--container .gowun-dodum-regular {
                 opacity: 0.6;
-                line-height: 1cap;
-                justify-content: start;
+                padding: var(--Pad00) 0 0 var(--Pad00);
             }
-                .flower--list > button{
-                    border: none;
-                    padding: none;
-                    font-size: var(--Pad00);
-                    background-color: transparent;
-                    color: var(--Negro);
-                    cursor: pointer;
-                }
-                    .flower--list > button > svg{
-                        width: 1rem;
-                        height: 1rem;
-                        aspect-ratio: 1/1;
-                        stroke: var(--Negro);
-                    }
-
+            
 
         .render--container{
             width: 100%;
-            max-width: min(50%, 500px);
+            max-width: max(40%, 500px);
             height: fit-content;
             position: absolute;
             top: 50%;

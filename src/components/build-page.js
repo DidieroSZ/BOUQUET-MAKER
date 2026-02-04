@@ -15,12 +15,16 @@ import { iconos } from '../utils/icons.js';
 import './flowerItem.js';
 /* --- FLOWER ITEM --- */
 
+/* --- DETAIL ITEM --- */
+import './detailItem.js';
+/* --- DETAIL ITEM --- */
+
 /* --- IMAGES --- */
 import flower_sprite from '../media/sprites/flower_sprite.png';
 import backimage from '../media/background-header.png';
 /* --- IMAGES --- */
 
-import { animate, press, delay } from "motion"
+import { animate } from "motion"
 
 export class BuildPageCompoent extends LitElement {
 
@@ -30,8 +34,9 @@ export class BuildPageCompoent extends LitElement {
     constructor(){
         super();
         this.detallesBouquet = {
-            flores:[ { nombre: 'aciano', cant: 2 }, { nombre: 'brunfelsia', cant: 4 }],
-            follaje: [ { nombre: 'Eucalipto', cant: 1 }, ]
+            flores:[],
+            follaje: [],
+            mensaje: [],
         };
     }
     static styles = [
@@ -41,7 +46,6 @@ export class BuildPageCompoent extends LitElement {
 
     firstUpdated(){
         this._animatronik();
-        this._sliderConfig();
     }
 
     /* ------------- RENDER FUNCTIONS ------------- */
@@ -84,14 +88,19 @@ export class BuildPageCompoent extends LitElement {
         `;
     }
     _renderDetails(){
-        return html`
+        if (this.detallesBouquet.flores.length != 0) {
+            return html`
             ${this.detallesBouquet.flores.map(f => html`
-                <span class="flower--list d-flexx d-row gowun-dodum-regular">
-                    <p>${f.cant}x</p><p>${f.nombre}</p>
-                    <button class="d-flexx">${unsafeHTML(iconos.close)}</button>
-                </span>
+                <detail-item @delete-detail=${this._flowerDeleteClick} .cantidad=${f.cant} .nombre=${f.nombre}></detail-item>
             `)}
-        `;
+            `;
+        }
+        else{
+            return html`
+                <p class="gowun-dodum-regular"> Sin flores o follaje añadido.</p>
+            `;
+        }
+        
         
     }
     /* ------------- RENDER FUNCTIONS ------------- */
@@ -107,26 +116,58 @@ export class BuildPageCompoent extends LitElement {
     }
     /* ------------- NAVEGATION FUNCTIONS ------------- */
 
-    
-    _sliderConfig(){
-        
+
+    /* ------------- FLOWERS FUNCTIONS ------------- */
+    _flowerClick(e){
+        let fN = e.detail.flowerName;
+        this._addFlower(fN);
+    }
+    _flowerDeleteClick(e){
+        let fN = e.detail.type;
+        this._deleteFlower(fN);
     }
 
-    _flowerClick(e){
-        let flowerName = e.detail.flowerName;
-        
-        let formato = {nombre: flowerName, cant: 1}
-        this.detallesBouquet.flores.push(formato);
+    _addFlower(fN){
+        let dBF = this.detallesBouquet.flores;
+        let exist = false;
+        dBF.forEach(f => {
+            if (f.nombre === fN) {
+                f.cant++;
+                exist = true;
+            }
+        });
+        if (!exist) {
+            let formato = { nombre: fN, cant: 1 };
+            dBF = [...dBF, formato];
+        }
+        this.detallesBouquet.flores = dBF;
         this.requestUpdate();
     }
+    _deleteFlower(fN){
+        console.log('Borrando: ', fN)
+        let dBF = this.detallesBouquet.flores;
+        dBF.forEach((f, i) => {
+            if (f.nombre === fN) {
+                f.cant--;
+                
+            }
+            if (f.cant <= 0) {
+                dBF.splice(i, 1);
+            }
+        });
+        this.detallesBouquet.flores = dBF;
+        this.requestUpdate();
+    }
+    /* ------------- FLOWERS FUNCTIONS ------------- */
 
 
     /* ------------- ANIMATION FUNCTIONS ------------- */
     _animatronik(){
         const cont = this.renderRoot.querySelector('.builder--container');
         animate(cont,
-            { scale: [0, 1] },
-            {ease: [1, 0.068, 0.208, 1.068], duration: 0.8}
+            { scale: [0.1, 1] },
+            /* { ease: "circInOut", duration: 0.8 } */
+            { ease: [1, 0.068, 0.208, 1.068], duration: 0.8 }
         );
     }
     /* ------------- ANIMATION FUNCTIONS ------------- */

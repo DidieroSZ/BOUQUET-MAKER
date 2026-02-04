@@ -16,12 +16,12 @@
     margin-bottom: 1.5rem;
 
     cursor: pointer;
-    transition: all ease 0.5s;
+    /* transition: all ease 0.5s; */
 }
-    .flower-item:hover {
+    /* .flower-item:hover {
         scale: 1.1;
     }
-
+ */
     .flower-item > p {
         opacity: 0;
         font-size: 1rem;
@@ -30,7 +30,8 @@
         top: -1cap;
         line-height: 1cap;
         text-transform: uppercase;
-        transition: all ease 0.5s;
+        transition: all ease 0.3s;
+        user-select: none;
     }
         .flower-item:hover > p {
             overflow: visible;
