@@ -16,6 +16,7 @@
     --Pad00: 0.5rem;
     --Pad01: 1rem;
     --Pad02: 2rem;
+    --Pad03: 3.5rem;
 }
 
 /** FONTS STYLES */
@@ -77,7 +78,7 @@
 }
 .btn-sec{
     background-color: var(--Gris);
-    border: solid 1px var(--Gris);
+    border: solid 2px var(--Gris);
     color: var(--Negro);
 }
     .btn-sec:hover{

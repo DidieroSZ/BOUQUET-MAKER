@@ -8,8 +8,9 @@
     background-color: var(--Blanco);
     overflow: hidden;
     position: relative;
-    border-radius: var(--Pad02);
+    border-radius:var(--Pad02);
     padding: var(--Pad02);
+    
 }
     
     .btn--close--builder{
@@ -18,13 +19,13 @@
         right: var(--Pad02);
         z-index: 2;
     }
+
     .steps--container{
         width: 40%;
         max-width: 250px;
         min-width: 200px;
         height: fit-content;
         min-height: 50px;
-        /* background-color: var(--Negro); */
         overflow: hidden;
         position: absolute;
         top: var(--Pad02);
@@ -41,7 +42,9 @@
             padding: 0.7rem;
             background-color: var(--Gris);
             color: var(--Negro);
-            border-radius: 50%;
+            border-radius: var(--Pad01);
+            /* corner-shape: scoop; */
+            corner-shape: squircle;
         }
             .circle--step > svg{
                 width: 1rem;
@@ -52,14 +55,11 @@
 
     .item--builder--card{
         width: 100%;
-        height: auto;
+        height: 70%;
+        position: relative;
         overflow: hidden;
         position: relative;
         flex-grow: 1;
-    }
-    .middle--builder{
-        height: 70%;
-        position: relative;
     }
         .configurator--container{
             width: min(20%, 210px);
@@ -89,14 +89,30 @@
                 padding: var(--Pad00) 0 0 var(--Pad00);
             }
             
-
-        .render--container{
+        
+        .sizes--containers{
             width: 100%;
             max-width: max(40%, 500px);
             height: fit-content;
+            min-height: 50px;
+            /* background-color: var(--Negro); */
             position: absolute;
+            transform: translate(-50%, -50%);
+        }
+        .render--container{
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            gap: 0;
+            gap: var(--Pad00);
         }
+
+        .navegation--container{
+            transform: translate(-50%, 0%);
+            left: 50%;
+            bottom: 0;
+            flex-wrap: nowrap;
+            gap: var(--Pad01);
+        }
+            .navegation--container > button{
+                width: 100%;
+                flex: 1 1 auto;
+            }

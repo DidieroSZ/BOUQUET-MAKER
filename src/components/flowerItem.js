@@ -30,9 +30,11 @@ export class FlowerItem extends LitElement{
     render(){
         return html`
             <figure 
-                class="flower-item" 
+                class="flower-item d-flexx" 
                 @click=${this._flowerClick} 
                 data-flower=${this.flowerName}>
+                <span class="flower--img"></span>
+                <span class="gradient"></span>
                 <p class="general-font">
                     ${this.flowerName}
                 </p>

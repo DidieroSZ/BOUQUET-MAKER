@@ -62,15 +62,20 @@ export class BuildPageCompoent extends LitElement {
                 </div>
 
 
-                <div class="item--builder--card middle--builder">
+                <div class="item--builder--card">
+
                     <aside class="configurator--container d-flexx d-col">
                         <div class="top-detail d-flexx"><p class="general-font">Detalles</p></div>
                         ${this._renderDetails()}
                     </aside>
 
-
-                    <div class="render--container d-flexx d-row">
+                    <div class="render--container sizes--containers d-flexx d-row">
                         ${this._renderFlowers()}
+                    </div>
+
+                    <div class="navegation--container sizes--containers d-flexx d-row">
+                        <button class="btn-general btn-sec" @click=${this._closeBuilder}>Regresar</button>
+                        <button class="btn-general">Siguiente</button>
                     </div>
                 </div>
 
@@ -79,7 +84,7 @@ export class BuildPageCompoent extends LitElement {
     };
 
     _renderFlowers(){
-        const flores = ['aciano', 'fresia', 'cosmos', 'nemesia', 'azaleas', 'gerbera', 
+        const flores = ['aciano', 'fresia', 'cosmos', 'nemesia', 'azalea', 'gerbera', 
         'aster', 'hibisco', 'lirio', 'kalanchoe', 'anémona', 'brunfelsia', 'pensamiento', 'plumeria', 'zinnia'];
         return html`
             ${flores.map(flor => html`
@@ -90,9 +95,9 @@ export class BuildPageCompoent extends LitElement {
     _renderDetails(){
         if (this.detallesBouquet.flores.length != 0) {
             return html`
-            ${this.detallesBouquet.flores.map(f => html`
-                <detail-item @delete-detail=${this._flowerDeleteClick} .cantidad=${f.cant} .nombre=${f.nombre}></detail-item>
-            `)}
+                ${this.detallesBouquet.flores.map(f => html`
+                    <detail-item @delete-detail=${this._flowerDeleteClick} .cantidad=${f.cant} .nombre=${f.nombre}></detail-item>
+                `)}
             `;
         }
         else{
@@ -100,8 +105,6 @@ export class BuildPageCompoent extends LitElement {
                 <p class="gowun-dodum-regular"> Sin flores o follaje añadido.</p>
             `;
         }
-        
-        
     }
     /* ------------- RENDER FUNCTIONS ------------- */
 
@@ -128,7 +131,8 @@ export class BuildPageCompoent extends LitElement {
     }
 
     _addFlower(fN){
-        let dBF = this.detallesBouquet.flores;
+        let dBF = new Set();
+        dBF = this.detallesBouquet.flores;
         let exist = false;
         dBF.forEach(f => {
             if (f.nombre === fN) {
@@ -144,12 +148,11 @@ export class BuildPageCompoent extends LitElement {
         this.requestUpdate();
     }
     _deleteFlower(fN){
-        console.log('Borrando: ', fN)
-        let dBF = this.detallesBouquet.flores;
+        let dBF = new Set();
+        dBF = this.detallesBouquet.flores;
         dBF.forEach((f, i) => {
             if (f.nombre === fN) {
                 f.cant--;
-                
             }
             if (f.cant <= 0) {
                 dBF.splice(i, 1);
