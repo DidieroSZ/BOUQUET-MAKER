@@ -1,0 +1,25 @@
+
+<img src="${backimage}">
+
+
+
+                <div class="flower_01 cursiva-font">
+                    Hola
+                </div>
+                <div class="flower_02 general-font">
+                    Hola
+                </div>
+                <div class="flower_03 title-font">
+                    Hola
+                </div>
+
+
+
+render() {
+        switch (this.route) {
+            case '/build/':
+                return html`<build-page></build-page>`;
+            default:
+                return html`<home-page></home-page>`;
+        }
+    }

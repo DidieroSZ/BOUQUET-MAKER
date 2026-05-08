@@ -1,0 +1,25 @@
+.gowun-dodum-regular {
+    opacity: 0.6;
+    padding: var(--Pad00) 0 0 var(--Pad00);
+}
+.flower--list {
+    width: 100%;
+    height: fit-content;
+    gap: var(--Pad00);
+    line-height: 1cap;
+    justify-content: start;
+}
+    .flower--list > button {
+        border: none;
+        padding: none;
+        font-size: var(--Pad00);
+        background-color: transparent;
+        color: var(--Negro);
+        cursor: pointer;
+    }
+        .flower--list > button > svg {
+            width: 1rem;
+            height: 1rem;
+            aspect-ratio: 1/1;
+            stroke: var(--Negro);
+        }

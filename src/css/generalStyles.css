@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:host{
+    --Blanco: #fff;
+    --Naranja: #d23a03;
+    --Beige: #f9efe4;
+    --Verde: #8DAA91;
+    --Rosa: #ffe3df;
+    --Negro: #1E1E24;
+    --Gris: #dee2e6;
+
+    --Pad00: 0.5rem;
+    --Pad01: 1rem;
+    --Pad02: 2rem;
+    --Pad03: 3.5rem;
+}
+
+/** FONTS STYLES */
+.cursiva-font{
+    font-family: 'Pencerio', cursive;
+}
+.general-font{
+    font-family: 'Bonny', serif;
+    font-size: 2rem;
+}
+.title-font{
+    font-family: 'Melodrama', serif;
+}
+.gowun-dodum-regular {
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: bold;
+}
+/** FONTS STYLES */
+
+
+/** GENERAL STYLES */
+.d-flexx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.d-row{
+    flex-direction: row;
+}
+.d-col{
+    flex-direction: column;
+}
+
+.btn-general{
+    width: auto;
+    height: fit-content;
+    padding: var(--Pad01);
+    border: solid 2px var(--Negro);
+    background-color: var(--Negro);
+    color: var(--Blanco);
+    font-size: 1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 3rem;
+    text-decoration: none;
+    corner-shape: squircle;
+}   
+    .btn-general:hover{
+        background-color: var(--Naranja);
+    }
+.btn-circular{
+    aspect-ratio: 1/1;
+    padding:var(--Pad00);
+}
+.btn-pri{
+
+}
+.btn-sec{
+    background-color: var(--Gris);
+    border: solid 2px var(--Gris);
+    color: var(--Negro);
+}
+    .btn-sec:hover{
+        background-color: var(--Blanco);
+    }
+/** GENERAL STYLES */
+
+
+.main-cotainer{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--Beige);
+}
+
+    .portfolio--link{
+        position: absolute;
+        top: var(--Pad02);
+        left: var(--Pad02);
+        color: var(--Negro);
+        text-decoration: none;
+    }
+    .page--container{
+        width: 100%;
+        height: 100%;
+    }

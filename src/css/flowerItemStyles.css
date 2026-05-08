@@ -1,0 +1,153 @@
+:host {
+    --size: 100px;
+    --size1: calc(var(--size) * -1);
+    --size2: calc((var(--size) * 2) * -1);
+}
+
+.flower-item {
+    width: var(--size);
+    min-width: var(--size);
+    aspect-ratio: 1/1;
+    height: auto;
+    position: relative;
+    cursor: pointer;
+}
+    .flower--img{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        aspect-ratio: 1/1;
+        z-index: 2;
+        background-image: url('../media/sprites/flower_sprite.png');
+        background-repeat: no-repeat;
+        background-size: calc(var(--size) * 3);
+        overflow: hidden;
+    }
+    .gradient{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        z-index: 1;
+        transition: all ease-in 5s;
+        background: radial-gradient(circle,rgba(252, 179, 195, 0) 0%, rgba(255, 255, 255, 0) 75%);
+    }
+    .flower-item > p {
+        width: 100%;
+        border: solid 1px var(--Negro);
+        background-color: var(--Blanco);
+        corner-shape: round;
+        border-radius: var(--Pad01);
+        padding: 0.5cap;
+        opacity: 0;
+        font-size: var(--Pad01);
+        text-align: center;
+        position: absolute;
+        bottom: -1.5cap;
+        line-height: 1cap;
+        text-transform: uppercase;
+        /* transition: all ease-in 0.2s; */
+        user-select: none;
+        z-index: 4;
+    }
+        .flower-item:hover {
+            z-index: 10;
+        }
+        .flower-item:hover > .gradient {
+            filter: blur(1rem);
+            background: radial-gradient(circle,rgba(252, 179, 195, 1) 0%, rgba(255, 255, 255, 1) 75%);
+        }
+        .flower-item:hover > p {
+            overflow: visible;
+            opacity: 1;
+        }
+
+    .flower-item[data-flower="aciano"] > .flower--img {
+        background-position: 0 -5px;
+    }
+    .flower-item[data-flower="aciano"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(101, 123, 202, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="fresia"] > .flower--img {
+        background-position: var(--size1) -5px;
+    }
+    .flower-item[data-flower="fresia"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(244, 180, 129, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="cosmos"] > .flower--img {
+        background-position: var(--size2) -5px;
+    }
+
+
+    .flower-item[data-flower="nemesia"] > .flower--img {
+        background-position: 0 -110px;
+    }
+    .flower-item[data-flower="nemesia"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(252, 153, 163, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="azalea"] > .flower--img {
+        background-position: var(--size1) -115px;
+    }
+    .flower-item[data-flower="azalea"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(252, 153, 163, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+ 
+    .flower-item[data-flower="gerbera"] > .flower--img {
+        background-position: var(--size2) -110px;
+    }
+    .flower-item[data-flower="gerbera"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(200, 74, 78, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="aster"] > .flower--img {
+        background-position: 0rem -225px;
+    }
+    .flower-item[data-flower="aster"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(164, 148, 180, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="hibisco"] > .flower--img {
+        background-position: var(--size1) -215px;
+    }
+
+    .flower-item[data-flower="lirio"] > .flower--img {
+        background-position: var(--size2) -220px;
+    }
+
+    .flower-item[data-flower="kalanchoe"] > .flower--img {
+        background-position: 0rem -327px;
+    }
+    .flower-item[data-flower="kalanchoe"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(227, 145, 33, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="anémona"] > .flower--img {
+        background-position: -105px -315px;
+    }
+
+    .flower-item[data-flower="brunfelsia"] > .flower--img {
+        background-position: -205px -325px;
+    }
+    .flower-item[data-flower="brunfelsia"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(34, 102, 142, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="pensamiento"] > .flower--img {
+        background-position: 0rem -425px;
+    }
+    .flower-item[data-flower="pensamiento"]:hover > .gradient {
+        background: radial-gradient(circle,rgba(34, 102, 142, 1) 0%, rgba(255, 255, 255, 1) 75%);
+    }
+
+    .flower-item[data-flower="plumeria"] > .flower--img {
+        background-position: var(--size1) -415px;
+    }
+
+    .flower-item[data-flower="zinnia"] > .flower--img {
+        background-position: var(--size2) -430px;
+    }
